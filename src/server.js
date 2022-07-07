@@ -11,14 +11,6 @@ server.use(cors())
 server.use(express.json())
 server.use(router)
 
-server.listen(5000)
-
-/* 
-server.listen(5000)
-
-v v v on deploy v v v
-
 server.listen(process.env.PORT, () => {
     console.log("Server running on port " + process.env.PORT);
-});
-*/
+})
