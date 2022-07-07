@@ -15,7 +15,7 @@ async function verifyToken(req, res, next) {
         const tokenData = jwt.verify(token, process.env.JWT_SECRET)
         res.locals.userId = tokenData.userId
     } catch {
-        res.status(401).send("aFalha na autenticação, faça login e tente novamente")
+        res.status(401).send("Falha na autenticação, faça login e tente novamente")
         return
     }
   

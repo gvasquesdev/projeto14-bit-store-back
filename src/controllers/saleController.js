@@ -12,4 +12,5 @@ export async function registerSale (req, res) {
 
     await db.collection("sales").insertOne({ userId: res.locals.userId, products, price, address, date  })
 
+    res.sendStatus(201)
 }
