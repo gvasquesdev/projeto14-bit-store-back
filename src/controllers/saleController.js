@@ -1,4 +1,3 @@
-import joi from "joi"
 import db from "../database/mongo.js"
 
 export async function getUserOrders (req, res) {
