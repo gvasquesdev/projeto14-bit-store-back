@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import cors from "cors"
 
 import router from "./routes/index.js"
+import db from "./database/mongo.js"
 
 dotenv.config()
 const server = express()

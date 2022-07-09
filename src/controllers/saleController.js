@@ -1,7 +1,7 @@
 import db from "../database/mongo.js"
 
 export async function getUserOrders (req, res) {
-    const userOrders = await db.collection("sales").find({ userId: res.locals.userId }).toArray()
+    const userOrders = await db.collection("sales").find({userId: res.locals.userId}).toArray()
 
     res.send(userOrders)
 }
