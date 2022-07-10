@@ -10,6 +10,7 @@ export async function registerSale (req, res) {
     const {products, price, address, date} = req.body;
 
     await db.collection("sales").insertOne({ userId: res.locals.userId, products, price, address, date  })
+    await db.collection("carts").deleteMany({userId: res.locals.userId})
 
     res.sendStatus(201)
 }
