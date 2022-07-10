@@ -7,7 +7,7 @@ export async function getUserOrders (req, res) {
 }
 
 export async function registerSale (req, res) {
-    const {products, price, address, date } = req.body;
+    const {products, price, address, date} = req.body;
 
     await db.collection("sales").insertOne({ userId: res.locals.userId, products, price, address, date  })
 
