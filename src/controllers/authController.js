@@ -21,7 +21,9 @@ export async function signUp (req, res) {
 
     const passwordHash = bcrypt.hashSync(password, 10);
 
-    await db.collection("users").insertOne({ name, cpf, email, password: passwordHash }) 
+    const regex = 
+
+    await db.collection("users").insertOne({ name, cpf: cpf.toString().replace(/[^0-9]/g, "") , email, password: passwordHash, cartProducts: []}) 
 
     res.sendStatus(201);
 }

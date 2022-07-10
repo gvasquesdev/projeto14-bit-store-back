@@ -19,7 +19,14 @@ export async function signUpMiddleware(req, res, next) {
     const emailAlreadyInUse = await db.collection("users").find({email: email}).toArray()
 
     if (emailAlreadyInUse.length) {
-        res.status(409).send({Error: "este email ja esá sendo usado"})
+        res.status(409).send({Error: "Este email já esá sendo usado"})
+        return
+    }
+
+    const cpfAlreadyInUse = await db.collection("users").find({cpf: cpf.toString().replace(/[^0-9]/g, "")}).toArray()
+
+    if (cpfAlreadyInUse.length) {
+        res.status(409).send({Error: "Já existe uma conta com este cpf"})
         return
     }
 
