@@ -14,7 +14,7 @@ export async function addToUserCart (req, res) {
     const productAlreadyInCart = await db.collection("carts").find({userId: res.locals.userId, name}).toArray()
 
     if (productAlreadyInCart.length) {
-        res.status(409).send({Error: "Este produto já se encontra no carrinho"})
+        res.status(409).send({error: "Este produto já se encontra no carrinho"})
         return
     }
 

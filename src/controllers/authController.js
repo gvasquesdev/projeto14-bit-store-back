@@ -12,7 +12,7 @@ export async function signIn (req, res) {
 
         res.send({token})
     } else {
-        res.status(401).send({Error: "email e/ou senha incorretos!"})
+        res.status(401).send({error: "email e/ou senha incorretos!"})
     }
 }
 
@@ -20,8 +20,6 @@ export async function signUp (req, res) {
     const {name, cpf, email, password} = req.body;
 
     const passwordHash = bcrypt.hashSync(password, 10);
-
-    const regex = 
 
     await db.collection("users").insertOne({ name, cpf: cpf.toString().replace(/[^0-9]/g, "") , email, password: passwordHash, cartProducts: []}) 
 
