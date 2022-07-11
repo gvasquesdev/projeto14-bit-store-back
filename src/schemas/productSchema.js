@@ -1,0 +1,11 @@
+import joi from "joi";
+
+
+const productSchema = joi.object({
+    name: joi.string().required(),
+    price: joi.number().required(),
+    imgURL: joi.string().required(),
+    department: joi.string().required()
+});
+
+export default productSchema;
