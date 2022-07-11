@@ -6,7 +6,7 @@ export default function saleMiddleware(req, res, next) {
     const validation = saleSchema.validate({address}, { abortEarly: false })
 
     if (validation.error) {
-        res.status(400).send({Error: validation.error.details})
+        res.status(400).send({error: validation.error.details})
         return
     }
     next();
